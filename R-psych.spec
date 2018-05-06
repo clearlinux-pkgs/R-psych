@@ -4,7 +4,7 @@
 #
 Name     : R-psych
 Version  : 1.8.3.3
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/psych_1.8.3.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/psych_1.8.3.3.tar.gz
 Summary  : Procedures for Psychological, Psychometric, and Personality
@@ -27,11 +27,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523733989
+export SOURCE_DATE_EPOCH=1525647349
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523733989
+export SOURCE_DATE_EPOCH=1525647349
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
