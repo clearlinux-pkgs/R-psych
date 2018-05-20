@@ -4,15 +4,13 @@
 #
 Name     : R-psych
 Version  : 1.8.4
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/psych_1.8.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/psych_1.8.4.tar.gz
 Summary  : Procedures for Psychological, Psychometric, and Personality
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-GPArotation
 Requires: R-mnormt
-BuildRequires : R-GPArotation
 BuildRequires : R-mnormt
 BuildRequires : clr-R-helpers
 
@@ -27,11 +25,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1526690920
+export SOURCE_DATE_EPOCH=1526828134
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1526690920
+export SOURCE_DATE_EPOCH=1526828134
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -60,15 +58,6 @@ echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library psych
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library psych|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
-
 
 %files
 %defattr(-,root,root,-)
