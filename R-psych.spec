@@ -4,7 +4,7 @@
 #
 Name     : R-psych
 Version  : 1.8.4
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/psych_1.8.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/psych_1.8.4.tar.gz
 Summary  : Procedures for Psychological, Psychometric, and Personality
