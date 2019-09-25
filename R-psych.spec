@@ -4,12 +4,13 @@
 #
 Name     : R-psych
 Version  : 1.8.12
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/psych_1.8.12.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/psych_1.8.12.tar.gz
-Summary  : Procedures for psychological, psychometric, and personality research.
+Summary  : Procedures for Psychological, Psychometric, and Personality
 Group    : Development/Tools
 License  : GPL-2.0+
+Requires: R-mnormt
 BuildRequires : R-mnormt
 BuildRequires : buildreq-R
 
@@ -23,13 +24,13 @@ No detailed description available
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552949612
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569379881
 
 %install
-export SOURCE_DATE_EPOCH=1552949612
+export SOURCE_DATE_EPOCH=1569379881
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
