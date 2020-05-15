@@ -4,10 +4,10 @@
 #
 Name     : R-psych
 Version  : 1.9.12.31
-Release  : 35
+Release  : 36
 URL      : https://cran.r-project.org/src/contrib/psych_1.9.12.31.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/psych_1.9.12.31.tar.gz
-Summary  : Procedures for psychological, psychometric, and personality research.
+Summary  : Procedures for Psychological, Psychometric, and Personality
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-mnormt
@@ -19,21 +19,22 @@ No detailed description available
 
 %prep
 %setup -q -c -n psych
+cd %{_builddir}/psych
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578695576
+export SOURCE_DATE_EPOCH=1589531127
 
 %install
-export SOURCE_DATE_EPOCH=1578695576
+export SOURCE_DATE_EPOCH=1589531127
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
