@@ -4,7 +4,7 @@
 #
 Name     : R-psych
 Version  : 2.1.9
-Release  : 54
+Release  : 55
 URL      : https://cran.r-project.org/src/contrib/psych_2.1.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/psych_2.1.9.tar.gz
 Summary  : Procedures for Psychological, Psychometric, and Personality
