@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-psych
-Version  : 2.3.3
-Release  : 68
-URL      : https://cran.r-project.org/src/contrib/psych_2.3.3.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/psych_2.3.3.tar.gz
+Version  : 2.3.6
+Release  : 69
+URL      : https://cran.r-project.org/src/contrib/psych_2.3.6.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/psych_2.3.6.tar.gz
 Summary  : Procedures for Psychological, Psychometric, and Personality
 Group    : Development/Tools
 License  : GPL-2.0+
@@ -23,17 +23,19 @@ No detailed description available
 
 %prep
 %setup -q -n psych
-cd %{_builddir}/psych
+pushd ..
+cp -a psych buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679331489
+export SOURCE_DATE_EPOCH=1687448448
 
 %install
-export SOURCE_DATE_EPOCH=1679331489
+export SOURCE_DATE_EPOCH=1687448448
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -63,6 +65,7 @@ echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --use-LTO --install-tests --data-compress=none --compress=none --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library .
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -99,4 +102,3 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/psych/help/psych.rdx
 /usr/lib64/R/library/psych/html/00Index.html
 /usr/lib64/R/library/psych/html/R.css
-/usr/lib64/R/library/psych/old.psych.23.CITATION.txt
